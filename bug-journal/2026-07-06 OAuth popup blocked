@@ -1,0 +1,14 @@
+# 2026-07-06 OAuth popup blocked
+
+## What I was trying to do
+Here I was trying to set up my credentials, so that n8n can add data to my google sheets. 
+## What broke
+When I clicked "Sign in with Google," it would say the account was not connected, even with a popup that said "credential saved." 
+## What I thought was wrong
+At first, I thought that the credentials was wrong or broken.
+## What was actually wrong
+Brave was silently blocking the Google sign in popup.
+## How I found it
+The browser tab above said "Pop-up Window Blocked." Once I saw this I allowed popups for the n8n site, and then the sign in worked.
+## Takeaway
+When an OAuth "connect" fails or does not go through, check if the browser killed the popup before assuming the credential is wrong.

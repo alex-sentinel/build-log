@@ -5,6 +5,6 @@ Finished projects and raw failures will be documented here.
 
 ## What's in here
 
-- **case-studies/** — my process of building each project once it's actually shipped: what I built, why I built it, what broke, whats next.
+- **builds/** — my process of building each project once it's actually shipped: what I built, why I built it, what broke, whats next.
 - **bug-journal/** — my personal record of walls I hit, I write these when they happen
 

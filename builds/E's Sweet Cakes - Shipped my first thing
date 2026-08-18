@@ -1,0 +1,28 @@
+My mom's cake business has a real website now, live on the internet, and I built it.
+She was taking cake orders through the phone. So there was no way for people 
+to see flavors or prices without texting her number. 
+
+Now that I have set up her website, people can see her flavors, prices, quote forms, 
+and a gallery of her past work all in one place. 
+
+Before setting up my mother's website, I wanted to make sure I could build
+a working automation that I could add to it. While setting up a workflow on my own, 
+I ran into a few obstacles. For example, I made a node which sends a form's user data to a 
+google sheet. When I was setting up my google account's credentials in n8n, Brave started blocking 
+the sign in popup. I thought the credentials I typed in were wrong. But then I found that Brave doesn't 
+tell you when it blocks the popup, it lets the sign in disappear and it makes you wonder 
+if your login's broken. When I went to check, I found the google sign in right away. 
+Lesson: check for a blocked popup before you assume your credentials are wrong.
+
+Another obstacle I ran into was when I almost sent a confirmation email to a stranger. 
+I was testing an auto reply node and looked back at the "To" field before running it. 
+I saw that it wasn't my test email at all. I also saw that the node was pulling from Google 
+Sheets instead of from my webhook, and Sheets had some old test rows in it from earlier runs. 
+It took one of those instead of my submission. I already like to check the outputs before hitting 
+execute, and here I caught that there would've been a real person getting a random "thanks for your 
+order" email.
+
+Now that I have a live site running for my mother, 
+I am going to add a working automation on top of it 
+that gets quote requests straight to her phone. 
+I already plan to make one for my father's courier company too.

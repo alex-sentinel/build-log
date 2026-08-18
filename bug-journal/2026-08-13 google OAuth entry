@@ -1,0 +1,14 @@
+# 2026-08-13 google OAuth entry
+
+## What I was trying to do
+While building my mother's lead automation, I had to connect my google sheets to n8n again. 
+## What broke
+I had already enabled the google sheets and drive APIs on the Cloud project. And I set up the OAuth consent form. After I put in my Client ID and Client Secret into n8n, it showed me the sign in popup. When I clicked the popup, the problems started appearing.  I got back an access error at first, then after I fixed that I got another error that said "this app has not been verified yet." To me it looks like another failure but it really wasn't in hindsight.
+## What I thought was wrong
+I thought that I had messed up part of the process. 
+## What was actually wrong
+I didnt have a Google Cloud project yet
+## How I found it
+I got stuck here and I had to look up the fix, the account that I was signing into was not on the test user list yet. 
+## Takeaway
+New OAuth apps stay in "testing" mode. Only the accounts that I have listed as test users can sign in, even if it's my own account on my project.

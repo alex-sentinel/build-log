@@ -1,0 +1,14 @@
+# 2026-07-06 webhook body vs. headers
+
+## What I was trying to do
+I was trying to find the data that the webhook had received through the site.
+## What broke
+The form submission reached the webhook and n8n showed "1 item," green check. This looked like it had worked to me. But I couldn't find the name/email/message in the output, instead it was showing me host, user-agent, and other Cloudflare stuff instead.
+## What I thought was wrong
+I thought that the data didn't go through and that the production URL that n8n gave me failed. 
+## What was actually wrong
+The data I was looking for was in the request *body*, and the table view was showing the *headers*.
+## How I found it
+I Switched to JSON view
+## Takeaway
+Each request has envelopes (headers) and a letter (body). The data I am looking for is usually in the body.

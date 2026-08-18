@@ -1,0 +1,18 @@
+# 2026-08-13 Webhook response error
+
+## What I was trying to do
+I was trying to setup a webhook node in n8n
+
+## What broke
+When I tried entering test data to see if the webhook worked, it threw an error back at me
+
+## What I thought was wrong
+I thought the setting was somehow wrong.
+
+## What was actually wrong
+I had to switch the respond settings, once I put it to 'immediately' it started working.
+
+## How I found it
+I got to the error when I tried to submit my own form on a localhost, and I looked up what was wrong. 
+## Takeaway
+My takeaway with this one is that a "respond to webhook" setting has to actually match what's built in the workflow, directing it at a node that isn't there yet makes it stay, even if the setting is the right thing to choose later on. 

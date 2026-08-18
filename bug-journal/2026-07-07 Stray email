@@ -1,0 +1,15 @@
+# 2026-07-07 Stray email
+
+## What I was trying to do
+While rebuilding the workflow on my own, I wanted to set up an auto reply email node.
+## What broke
+The "To" field resolved to `abedfada05170517@gmail.com
+This was an address from an earlier form test, not the one I meant. 
+## What I thought was wrong
+I assumed the "To" field was just taking whatever I'd put into the form, as if the email node was  wired to my test data.
+## What was actually wrong
+The node was getting the data from Google Sheets, not the Webhook. Sheets had multiple rows from earlier tests sitting in it, and the node took one of those instead of my current test. Data flows from the node that feeds it instead of "the latest thing I did."
+## How I found it
+I always preview output before executing a send node, and when I saw the other email I stopped. 
+## Takeaway
+Make sure to check what the "To" field actually resolved to before executing anything that sends. Also hardcode my own email while testing.

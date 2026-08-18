@@ -1,0 +1,30 @@
+# 2026-07-06 git authentication maze
+
+*Four separate walls in this session, in order:*
+## What I was trying to do
+==Trying to push to Github==
+## What broke
+1. `git add .` failed 
+2. the push rejected my password
+3. Tried to install the `gh` CLI but it didn't install
+4. Push failed again
+## What I thought was wrong
+1. I thought that it was rejecting my folder 
+2. I thought my password was wrong
+3. I thought I had to reset my mac book
+4. I thought that the whole thing was broken
+## What was actually wrong
+1. folder wasn't a repo yet because I never run `git init`
+2. GitHub doesn't accept account passwords for git anymore.
+3. `brew` wasn't installed
+4. A Typo
+## How I found it
+1. When I ran the first command, the terminal shot back at me: "Not a git repository"
+2. I ended up generating a Personal Access Token, and then pasted the token as the password.
+3. I found the specific error when I went to troubleshoot online 
+4. I put in `alex-sentinal` instead of `alex-sentinel`
+## Takeaway
+1. If git commands complain that the folder isn't a repo, it means I skipped `git init`
+2. GitHub auth needs a token, not a password
+3. My mac is fine, I have to check brew before assuming it's my setup 
+4. check my username spelling

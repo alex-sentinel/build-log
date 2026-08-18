@@ -1,2 +1,10 @@
-# bug-journal
-Each wall that I have hit while building automations and sites under Hernandez Systems Group. Obstacles are logged as I go.
+# build-log
+
+This is everything I write down while building Hernandez Systems Group.
+Finished projects and raw failures will be documented here.
+
+## What's in here
+
+- **case-studies/** — my process of building each project once it's actually shipped: what I built, why I built it, what broke, whats next.
+- **bug-journal/** — my personal record of walls I hit, I write these when they happen
+

@@ -1,0 +1,32 @@
+# 2026-08-19 Locked out of Hetzner server, no SSH access
+
+## What I was trying to do
+SSH into my Hetzner server so that I could restart a docker container.
+## What broke
+I wasn't able to get in. My SSH key had a passphrase that I never wrote down, and I also didn't know my root password.
+## What I thought was wrong
+I thought I just forgot the password and that I would be able to reset it through the rescue mode on Hetzner.
+## What was actually wrong
+There were two things that made rescue mode hard. The Hetzner console uses a Finnish keyboard, so typing in a password with capital letters or symbols ended up coming out wrong each time. Also, rescue mode makes a new password each time you enable it again, so when I tried to login before rebooting the server the password did not work. I hit these at the same time and didn't know which one was the problem. 
+## How I found it
+I found out the Finnish keyboard when I saw that what I typed didn't work after doing the reboot right. I saw the layout was different when I saw what it listed on output. 
+## How I fixed it
+I made a new SSH key on my Mac without a passphrase
+```
+ssh-keygen -t ed25519 -f ~/.ssh/id_rescue -N ""
+```
+I put the public key on Hetzner's SSH Keys page. And I enabled rescue mode again and rebooted so that the new key would load into the system. I then SSH'd in
+```
+ssh-keygen -R 89.167.37.101
+ssh -i ~/.ssh/id_rescue root@89.167.37.101
+```
+When I got into rescue, I set a new root password
+```
+mount /dev/sda1 /mnt
+chroot /mnt passwd
+```
+Then I used the 'reset root password' button on Hetzner to reset it and then I rebooted to the normal server. I logged into Hetzner with the new password and got in. 
+## Takeaway
+2 things to do
+- Dont set an SSH passphrase or write it down
+- Only use lowercase letters and numbers in passwords because the Finnish layout might mess it up

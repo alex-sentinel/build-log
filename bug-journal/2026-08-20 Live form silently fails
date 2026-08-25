@@ -1,0 +1,37 @@
+# 2026-08-20 Live form silently fails
+
+## What I was trying to do
+I needed to get the quote request on my mom's site to get to the n8n webhook, so that the workflow would execute when customers submit.
+## What broke
+Each time I tried to submit the form, the site would respond with "that didn't go through."  And nothing showed up in n8n's execution screen. There wasn't an error it just looked like the request went nowhere. 
+## What I thought was wrong
+At first I thought it was something with CORS, because my site is esweetcakesbaking.com and n8n is on n8n.esweetcakesbaking.com, which makes it two sites. I put the allowed origins to * but nothing changed. 
+
+So then I thought that the site was on an older code and needed to be updated. That was wrong also, since the live site had all recent edits. 
+## What was actually wrong
+When my quote request tried to go out, it didn't have anywhere to land. The address was supposed to be under PUBLIC_WEBHOOK_URL in my .env file.
+.env type files aren't on GitHub. They are excluded on purpose because they have passwords that shouldn't be public. 
+
+My live site is hosted by Cloudflare, which builds the site from my GitHub. Cloudflare's build didn't have an .env file, so it couldn't find an address. 
+
+It worked when I tested it on my own laptop because I have the .env while hosting locally. 
+
+Meaning that my browser was trying to send my form to something that was undefined. That's why I didn't see any errors on my screen. The form didn't fail, it just never got received. 
+## Why those 2 guesses were so wrong
+CORS is about the websites which a server will take requests from. It applies when a request is sent, and nothing was being sent, so CORS was never the problem. 
+
+Deploying the website again didn't work because Cloudflare was rebuilding from the GitHub without the .env files. It would come out undefined after every push. 
+## How I found it
+I used Claude Code to pull up my live page and see the JavaScript inside it. 
+```
+const webhookUrl = undefined
+```
+was right there in the open, which finally gave me the answer. 
+## How I fixed it
+I had Claude Code put the right URL into the code as a backup
+```
+const webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL ?? 'https://n8n.esweetcakesbaking.com/webhook/df03921b-...'
+```
+It checks the .env first with the ?? part. If there is nothing, it uses the URL I put instead. This means Cloudflare will always have somewhere to deliver without the .env file. 
+## Takeaway
+My .env file doesn't show up on GitHub, Cloudflare never had it. If something needs to be on the site, it has to be on Cloudflare's build somewhere. 

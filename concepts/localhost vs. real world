@@ -1,0 +1,30 @@
+## What is localhost?
+During the process of making my mother's site, I had everything running inside my mac for testing purposes. I set up Docker so I could host n8n on my mac. I needed to get n8n running ASAP so I could make sure my workflow was all good. 
+I reached it with a docker container since it was easier for me at the time:
+```
+http://localhost:5678/
+```
+
+Although, what I came to see was that my n8n workflow was only running when I had my laptop on with docker in the background. 
+## Why it was working for me
+The automation would work for me instantly because I was testing it from the same Mac running n8n. Whenever I would try to submit a quote request on my mom's site, the request only had to go from Safari to my docker container, meaning it all stayed within one computer.  
+## Why it wouldn't have worked for other people
+localhost means the computer you are on right now. Its not a specific computer, just the one you are using. The same address can lead somewhere different depending on who is using it.
+
+I was testing n8n using localhost:5678, on my mac. This means to send it to the device the person is using at the moment. For me, it was n8n, on my mac, so everything worked fine. 
+
+But if my mom would've opened the same site on her phone and filled out the form, her phone would have tried to look for n8n on its own device. My mom and most people don't have n8n, so it would have never gotten to my Mac. The only person this worked for so far was me. 
+## What needed to change
+I had to switch where n8n stayed at, I moved it from my Mac to a Hetzner server. I used the same setup but on a machine that isn't mine and stays on. 
+
+I used Cloudflare to direct n8n.esweetcakesbaking.com to my server, giving it HTTPS in the process. 
+
+The form now has an address that works from any phone or computer, anywhere, even if my Mac is shut off.
+## Takeaway
+It is necessary to learn the difference between
+- "it works when I try it"
+and 
+- "it works when other people try it"
+
+Testing everything from the same device usually hides this discrepancy.
+Now every time I will test from a device that isn't mine, its the only test that really matters.

@@ -8,17 +8,17 @@ My mother, Esperanza, has been baking cakes out of her kitchen in Faribault for 
 I built a website for her with a quote request form on it. Whenever someone submits a quote request, the request lands on her phone as a text and email, and it gets saved in a spreadsheet. She reads and replies to the customer the same day. 
 
 Form -> Webhook -> Google Sheet -> Email and text to her
-![[Screenshot 2026-09-01 at 1.35.15 PM.png|700]]
+![](images/order-form.png)
 
 ## What it does for her
 Whenever someone is wondering about a specific cake or date, they fill out a quote request.
 She gets a text within a few seconds of submission. It shows her the customer's name, what cake they want, when they need it, and their contact information. My mom can call or text them back whenever she gets the time to.
 
 Each request also gets recorded in a Google Sheet with what the customer filled out: date, type, size, filling, budget, and what they are picturing. Even if she isn't free when she gets the email, she can go back to it whenever she needs to. 
-![[Screenshot 2026-09-01 at 1.53.46 PM.png]]
+![](images/google-sheet.png)
 (test submissions)
-![[IMG_9074.jpeg|348]]
-![[IMG_9075.jpeg|354]]
+![](images/email-on-phone.png)
+![](images/text-on-phone.png)
 (test submissions landing on my mom’s phone as an email and text)
 ## How it's built
 - Astro for the site
@@ -27,7 +27,7 @@ Each request also gets recorded in a Google Sheet with what the customer filled 
 - n8n has the automation and workflow
 - The text comes from sending an email to her Verizon email to text address
 
-![[Screenshot 2026-09-01 at 1.51.32 PM 1.png|700]]
+![](images/n8n-workflow.png)
 ## Things that went wrong 
 Three big obstacles I faced during production:
 - **Locked out of Hetzner server, no SSH access**

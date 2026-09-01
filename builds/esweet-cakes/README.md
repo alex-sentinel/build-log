@@ -17,8 +17,8 @@ She gets a text within a few seconds of submission. It shows her the customer's 
 Each request also gets recorded in a Google Sheet with what the customer filled out: date, type, size, filling, budget, and what they are picturing. Even if she isn't free when she gets the email, she can go back to it whenever she needs to. 
 ![](images/google-sheet.png)
 (test submissions)
-![](images/email-on-phone.png)
-![](images/text-on-phone.png)
+![](images/email-on-phone.jpeg)
+![](images/text-on-phone.jpeg)
 (test submissions landing on my mom’s phone as an email and text)
 ## How it's built
 - Astro for the site

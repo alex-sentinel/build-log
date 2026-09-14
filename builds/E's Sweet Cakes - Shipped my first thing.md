@@ -1,3 +1,4 @@
+# E's Sweet Cakes - Shipped my first thing
 My mom's cake business has a real website now, live on the internet, and I built it using Claude Code.
 She was taking cake orders through the phone. So there was no way for people 
 to see flavors or prices without texting her number. 
